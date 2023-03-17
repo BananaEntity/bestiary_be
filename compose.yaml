@@ -1,7 +1,4 @@
 services:
-  push-image:
-    build: .
-    image: anhdnt2505/bestiary_be
   nginx-proxy:
     build: nginx
     restart: always
