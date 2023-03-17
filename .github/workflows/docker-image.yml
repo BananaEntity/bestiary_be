@@ -30,4 +30,4 @@ jobs:
          context: .
          file: ./Dockerfile
          push: true
-         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bestiary_be:latest
+         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/clockbox:latest
