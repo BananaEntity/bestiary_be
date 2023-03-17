@@ -24,3 +24,11 @@ jobs:
      - 
         name: Build the stack
         run: docker-compose up -d
+
+     - 
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bestiary_be:latest
