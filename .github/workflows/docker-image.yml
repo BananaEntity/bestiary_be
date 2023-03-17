@@ -26,9 +26,8 @@ jobs:
         run: docker-compose up -d
 
      - 
-        name: Build and push
-        uses: docker/build-push-action@v3
+        name: Docker-Compose Publish
+        uses: pennsignals/publish_docker-compose@v0.1.1
         with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bestiary_be:latest
+          docker_compose: 'compose.yaml'
+          repo_token: "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}"
