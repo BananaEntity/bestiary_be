@@ -23,4 +23,4 @@ jobs:
      
      - 
         name: Build the stack
-        run: docker-compose up -d
+        run: docker-compose build

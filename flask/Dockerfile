@@ -1,10 +1,9 @@
 FROM python:3.9.2-alpine
 
-# upgrade pip
-RUN python -m pip install --upgrade pip
-
 # get curl for healthchecks
+RUN apk update
 RUN apk add curl
+RUN apk add postgresql-dev gcc python3-dev musl-dev
 
 # permissions and nonroot user for tightened security
 RUN adduser -D nonroot
@@ -24,6 +23,7 @@ ENV VIRTUAL_ENV=/home/app/venv
 RUN python -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN export FLASK_APP=app.py
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # define the port number the container should expose
