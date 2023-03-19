@@ -19,6 +19,11 @@ services:
   flask-app:
     build: flask
     restart: always
+    environment:
+      - POSTGRE_USER=${POSTGRE_USER}
+      - POSTGRE_PASSWORD=${POSTGRE_PASSWORD}
+      - POSTGRE_HOST=${POSTGRE_HOST}
+      - POSTGRE_DATEBASE=${POSTGRE_DATEBASE}
     ports: 
       - '8000:8000'
     healthcheck:

@@ -1,15 +1,16 @@
 import flask_cors
-import os
 
 from flask import Flask, request, jsonify
 from ariadne import graphql_sync
-from gql.places import schema, db
+from common.database import db
+from gql.places.queries import schema
+from config import databse
 
 # initialize flask app
 app = Flask(__name__)
 flask_cors.CORS(app)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DB_POSTGRE_URL', default=None)
+app.config["SQLALCHEMY_DATABASE_URI"] = databse.POSTGRE_URL
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
