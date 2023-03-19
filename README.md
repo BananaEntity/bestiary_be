@@ -1,10 +1,10 @@
 # run local
 
 ## build docker image
-docker-compose build
+docker compose build
 
 ## run
-docker-compose up -d
+docker compose --env-file .\resource\.env up -d
 
 ## stop
 docker compose stop
